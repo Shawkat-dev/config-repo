@@ -1,0 +1,26 @@
+server:
+  port: 9000
+
+security:
+  basic:
+    enabled: false
+
+ribbon:
+  ReadTimeout: 14,400,000
+  eureka:
+    enabled: false
+
+zuul:
+  routes:
+    chartofaccounts:
+      sensitiveHeaders: Cookie,Set-Cookie
+      url: http://localhost:8081
+    oauth2client:
+      sensitiveHeaders: Cookie, Set-Cookie
+      url: http://localhost:9001
+    payroll:
+      sensitiveHeaders: Cookie, Set-Cookie
+      url: http://localhost:8082
+    inventory:
+      sensitiveHeaders: Cookie, Set-Cookie
+      url: http://localhost:8083
